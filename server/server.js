@@ -8,17 +8,31 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+require('dotenv').config({ path: __dirname + '/.env' });
 
 // Konfiguracja nodemailer
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST, // np. smtp.gmail.com
-  port: process.env.SMTP_PORT, // np. 587
-  secure: process.env.SMTP_SECURE === "true", // false dla portu 587
+  host: "smtp.gmail.com",
+  port: 587, // Możesz zmienić na 465
+  secure: false, // Port 587 wymaga `false`, a 465 wymaga `true`
+  requireTLS: true, // Wymuś użycie TLS
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
+  tls: {
+    rejectUnauthorized: false, // Możesz spróbować bez tego
+  },
 });
+
+
+
+
+console.log("SMTP_HOST:", process.env.SMTP_HOST);
+console.log("SMTP_PORT:", process.env.SMTP_PORT);
+console.log("SMTP_USER:", process.env.SMTP_USER);
+console.log("SMTP_PASS:", process.env.SMTP_PASS ? "OK" : "MISSING");
+
 
 app.post('/interest', async (req, res) => {
   const { firstName, lastName, phone, email, roomType, peopleCount, checkIn, checkOut, wantsInvoice, invoiceDetails, additionalInfo } = req.body;
