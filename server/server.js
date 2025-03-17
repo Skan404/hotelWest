@@ -76,13 +76,14 @@ app.post('/interest', async (req, res) => {
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'build')));
+  app.use(express.static(path.join(__dirname, '..', 'build')));
 
-  // Dla każdej nieznanej trasy zwróć index.html
+  // Dla każdej nieznanej trasy zwróć index.html z folderu build w katalogu głównym
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
   });
 }
+
 
 app.listen(port, () => {
   console.log(`Serwer działa na porcie ${port}`);
