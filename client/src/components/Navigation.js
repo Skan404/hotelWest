@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
+import name from '../assets/nazwa3.png';
 import './Navigation.css';
 
 function Navigation() {
@@ -8,7 +9,14 @@ function Navigation() {
     <nav className="navbar">
       <div className="nav-container">
         <div className="logo">
-          <img src={logo} alt="Hotel Logo" />
+          <Link to="/"> {}
+            <img src={logo} alt="Hotel Logo" />
+          </Link>
+        </div>
+        <div className="nav-graphic">
+          <Link to="/">
+            <img src={name} alt="Dekoracja" /> 
+          </Link>
         </div>
         <ul className="nav-links">
           <li><Link to="/">Strona główna</Link></li>

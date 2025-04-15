@@ -6,9 +6,14 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+// Cors configuration
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 app.use(express.json());
-require('dotenv').config({ path: __dirname + '/.env' });
 
 // Konfiguracja nodemailer
 const transporter = nodemailer.createTransport({
@@ -32,6 +37,10 @@ console.log("SMTP_HOST:", process.env.SMTP_HOST);
 console.log("SMTP_PORT:", process.env.SMTP_PORT);
 console.log("SMTP_USER:", process.env.SMTP_USER);
 console.log("SMTP_PASS:", process.env.SMTP_PASS ? "OK" : "MISSING");
+
+app.get('/', (req, res) => {
+  res.send('<p>Server is working</p>');
+});
 
 
 app.post('/interest', async (req, res) => {

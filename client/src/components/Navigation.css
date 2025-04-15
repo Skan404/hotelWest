@@ -27,6 +27,15 @@
   margin-left: 20px;
 }
 
+.nav-graphic {
+  line-height: 0;
+
+}
+
+.nav-graphic img {
+  margin-left: -330px;
+}
+
 .nav-links {
   display: flex;
   justify-content: flex-end;

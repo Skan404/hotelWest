@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Reservations.css';
 
+const api = axios.create({
+  baseURL: 'http://localhost:5000'
+});
+
 function Reservations() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -30,7 +34,7 @@ function Reservations() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/interest", formData)
+      await api.post("/interest", formData)
       setSubmitted(true);
     } catch (error) {
       console.error('Błąd:', error);
