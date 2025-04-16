@@ -6,7 +6,6 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Cors configuration
 app.use(cors({
   origin: 'http://localhost:3000',
   methods: ['GET', 'POST'],
@@ -15,18 +14,17 @@ app.use(cors({
 
 app.use(express.json());
 
-// Konfiguracja nodemailer
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 587, // Możesz zmienić na 465
-  secure: false, // Port 587 wymaga `false`, a 465 wymaga `true`
-  requireTLS: true, // Wymuś użycie TLS
+  port: 587,
+  secure: false,
+  requireTLS: true,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
   tls: {
-    rejectUnauthorized: false, // Możesz spróbować bez tego
+    rejectUnauthorized: false,
   },
 });
 
@@ -87,7 +85,6 @@ const path = require('path');
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'build')));
 
-  // Dla każdej nieznanej trasy zwróć index.html z folderu build w katalogu głównym
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
   });

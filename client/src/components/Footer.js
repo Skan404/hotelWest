@@ -39,10 +39,8 @@ function Footer() {
         </div>
       </div>
 
-      {/* Biały pasek */}
       <div className="footer-divider"></div>
 
-      {/* Tekst praw autorskich */}
       <div className="footer-copyright">
         Wszelkie prawa zastrzeżone © 2025
       </div>

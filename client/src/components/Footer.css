@@ -14,7 +14,7 @@
   flex-direction: column;
   gap: 10px;
   text-align: left;
-  margin-left: 100px; /* Dane kontaktowe przesunięte o 100px w prawo */
+  margin-left: 100px;
 }
 
 .contact-header {
@@ -30,7 +30,7 @@
 }
 
 .facebook-icon {
-  width: 18px; /* Zmniejszona ikonka Facebooka */
+  width: 18px; 
   height: auto;
 }
 
@@ -43,7 +43,6 @@
   text-decoration: underline;
 }
 
-/* Biały pasek na całą szerokość */
 .footer-divider {
   width: 100%;
   height: 1px;
@@ -51,7 +50,6 @@
   margin-top: 20px;
 }
 
-/* Tekst na dole */
 .footer-copyright {
   text-align: center;
   font-size: 0.9rem;

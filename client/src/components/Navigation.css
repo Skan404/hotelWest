@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px; /* Wydłużony pasek nawigacji */
+  height: 80px;
 }
 
 .logo img {
@@ -42,7 +42,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  flex: 1; /* Lista zajmuje około połowę dostępnej szerokości */
+  flex: 1;
   max-width: 50%;
 }
 
@@ -59,13 +59,13 @@
 }
 
 .nav-links a:hover {
-  background-color: #555; /* lub inny kolor podświetlenia */
-  color: #fff; /* ewentualnie zmiana koloru tekstu */
+  background-color: #555;
+  color: #fff;
 }
 
 
 .logo img {
-  max-height: 90px; /* powiększone o 50% */
+  max-height: 90px;
   margin-left: 20px;
 }
 

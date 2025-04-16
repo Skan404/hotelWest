@@ -11,8 +11,8 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <Routes> {/* Zmieniono Switch na Routes */}
-        <Route path="/" element={<Home />} /> {/* Zmieniono component na element */}
+      <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
